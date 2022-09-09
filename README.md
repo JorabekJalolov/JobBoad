@@ -1,10 +1,15 @@
 # JobBoardStepNew-master
 Sayt
 ![Снимок веб-страницы_9-9-2022_94613_localhost](https://user-images.githubusercontent.com/102501272/189328902-16050093-5517-430b-b71b-a8da5f60b553.jpeg)
+
 Yuqorda Saytimiz Tashqi shabloni ko'rsatilgan.
+
 Bu pageda foydalanuvchi registr dan o'tmasdan turib elonlarni ko'rish imkonyatiga ega.
+
 ![Снимок веб-страницы_9-9-2022_95049_localhost](https://user-images.githubusercontent.com/102501272/189329812-06c04345-3a4e-479c-9df2-3bfe2c82b203.jpeg)
+
 Yuqorda Registr Page.
+
 ![Снимок веб-страницы_9-9-2022_95312_localhost](https://user-images.githubusercontent.com/102501272/189329893-b43af014-5f68-4c26-af3d-57d7caf5f821.jpeg)
 Login Page.
 ![Снимок веб-страницы_9-9-2022_101332_localhost](https://user-images.githubusercontent.com/102501272/189329959-8f2fecad-f5c1-4119-b15c-0c7bdcec867e.jpeg)
