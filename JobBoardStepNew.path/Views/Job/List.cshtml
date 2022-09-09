@@ -1,0 +1,73 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer 
+@model List<JobListViewModel>
+@{
+	 Layout = "~/Views/Shared/Job/_Layout.cshtml";
+	   Pager pager = new Pager();
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+}
+<section>
+		<div class="block">
+			<div class="container">
+				 <div class="row">
+				 	<div class="col-lg-12">
+				 		<div class="job-grid-sec">
+							<div class="row">
+								@foreach (var item in Model)
+							{
+								if (item.JobTypeName == "contract" || item.JobTypeName == "shartnoma" || item.JobTypeName == "договор")
+								{
+									ViewData["login"] = "Login";
+								}
+								else
+								{
+									ViewData["login"] = "Login1";
+								}
+
+								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+									<div class="job-grid border">
+										<div class="job-title-sec">
+											<div class="c-logo"> <img src="~/adminJob/images/images.jpg" alt="" /> </div>
+											<h3><a href="job_list_grid.html#" title=""> @localizer["Salary"]: @item.Salary</a></h3>
+											<span>@localizer["Job Type"]: @item.JobTypeName</span>
+											<span class="fav-job"></span>
+										</div>
+										<span class="job-lctn">@localizer["Category"]: @item.JobCatName</span>
+										<a asp-controller="Job" asp-action="data" asp-route-id="@item.JobId"  title="">@localizer["Details"]</a>										
+									</div><!-- JOB Grid -->
+								</div>
+							}
+							</div>
+						</div>
+						<div class="pagination">
+							@if (pager.TotalPages > 0)
+						{
+							<ul>
+								@if (pager.CurrentPage > 1)
+								{
+
+									<li class="prev"><a asp-controller="Job" asp-action="List" asp-route-pg="1"> @localizer["First"]</a></li>
+									<li class="prev"><a asp-controller="Job" asp-action="List" asp-route-pg="@(pager.CurrentPage - 1)"> @localizer["Previous"]</a></li>
+								}
+								@for (int pge = pager.StartPage; pge < pager.EndPage; pge++)
+								{
+									<li class="  @(pge == pager.CurrentPage ? "active" : "" )"><a asp-controller="Job" asp-action="List" asp-route-pg="@pge">@pge</a></li>
+								}
+								@if (pager.CurrentPage < pager.TotalPages)
+								{
+										<li class="next"><a asp-controller="Job" asp-action="List" asp-route-pg="@(pager.CurrentPage + 1)">@localizer["Next"] </a></li>
+										<li class="next"><a  asp-controller="Job" asp-action="List" asp-route-pg="@pager.TotalPages">@localizer["Last"] </a></li>
+								}
+							</ul>
+						}
+						</div><!-- Pagination -->
+				 	</div>
+				 </div>
+			</div>
+		</div>
+	</section>
+	

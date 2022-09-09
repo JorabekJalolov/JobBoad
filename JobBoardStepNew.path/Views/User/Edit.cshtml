@@ -1,0 +1,62 @@
+﻿@model UserEditViewModel
+<form asp-controller="User" asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input hidden asp-for="UserId" />
+  <div class="form-row">
+      <div class="row">
+           <div class="form-group col-md-4">
+      <label asp-for="FirstName" class="form-label">FirstName</label>
+      <input asp-for="FirstName" class="form-control" id="inputEmail4" placeholder="FirstName">
+    </div>
+    <div class="form-group col-md-4">
+      <label asp-for="LastName" class="form-label">LastName</label>
+      <input asp-for="LastName" class="form-control" id="inputEmail4" placeholder="LastName">
+    </div>
+     <div class="form-group col-md-4">
+      <label asp-for="MiddleName" class="form-label">MiddleName</label>
+      <input asp-for="MiddleName" class="form-control" id="inputEmail4" placeholder="MiddleName">
+    </div>
+  </div>
+  <div class="row">
+      <div class="form-group col-md-3">
+      <label asp-for="Email" class="form-label">Email</label>
+      <input asp-for="Email" type="email" class="form-control" id="inputPassword4" placeholder="Email">
+    </div>
+    <div class="form-group col-md-3">
+    <label asp-for="PassportNumber" class="form-label">PassportNumber</label>
+    <input asp-for="PassportNumber" class="form-control" id="inputAddress" placeholder="PassportNumber">
+  </div>
+  <div class="form-group col-md-3">
+    <label asp-for="BirthDate" class="form-label">BirthDate</label>
+    <input asp-for="BirthDate" class="form-control" id="inputAddress2" placeholder="BirthDate">
+  </div>
+   <div class="form-group col-md-3">
+    <label asp-for="CreateDate" class="form-label">CreateDate</label>
+    <input asp-for="CreateDate" class="form-control" id="inputAddress2" placeholder="CreateDate">
+  </div>
+  </div>
+  </div>
+  <div class="form-row">
+ <div class="form-group col-md-4">
+      <label asp-for="RegionId" class="form-label">Region</label>
+      <select asp-for="RegionId" class="form-control" asp-items="@ViewBag.region">
+        <option selected>Choose...</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label  asp-for="UserTypeId">UserType</label>
+      <select asp-for="UserTypeId" class="form-control" asp-items="@ViewBag.usertype">
+        <option selected>Choose...</option>
+      </select>
+    </div>
+     <div class="form-group col-md-3">
+      <label asp-for="InforTranId" class="form-label">Information</label>
+      <select asp-for="InforTranId" class="form-control" asp-items="@ViewBag.infor">
+        <option selected>Choose...</option>
+      </select>
+    </div>
+  </div>
+  <div class="mt-4">
+  <button asp-controller="User" asp-action="List" class="btn btn-success ">back</button>
+  <button type="submit" class="btn btn-primary">Create</button>
+  </div>
+</form>

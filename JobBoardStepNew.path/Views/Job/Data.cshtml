@@ -1,0 +1,58 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer 
+@model IList<JobListViewModel>
+@{
+    Layout = "~/Views/Shared/Job/_Details.cshtml";
+}
+      @foreach (var item in Model)
+    {
+							  if (item.JobTypeName == "contract" || item.JobTypeName == "shartnoma" || item.JobTypeName == "договор")
+								{
+									ViewData["login"] = "Login";
+								}
+								else
+								{
+									ViewData["login"] = "Login1";
+								}
+      <section>
+		<div class="block">
+			<div class="container">
+				<div class="row">
+				 	<div class="col-lg-8 column">
+				 		<div class="job-single-sec">
+				 			<div class="job-single-head2">
+				 				<div class="job-title2"><h3>@localizer["Job Type"]</h3><span class="job-is ft">@item.JobTypeName</span></div>
+				 				<ul class="tags-jobs">
+				 					<li> @localizer["Uzbekistan"]</li>
+				 					<li> @localizer["Job Type"] : <span>@item.Salary</span></li>
+				 					<li> @localizer["Post Date"]: @item.CareateDate</li>
+				 				</ul>
+				 				<span><strong>@localizer["Category"]</strong> : @item.JobCatName</span>
+				 			</div><!-- Job Head -->
+				 			<div class="job-details">
+				 				<h3>@localizer["Job Description"]</h3>
+				 				<p>@item.Description</p>				 							 				
+				 			</div>
+				 			<div class="share-bar">
+				 				<span>@localizer["Share"]</span><a href="job_single2.html#" title="" class="share-fb"><i class="fa fa-facebook"></i></a><a href="job_single2.html#" title="" class="share-twitter"><i class="fa fa-twitter"></i></a>
+				 			</div>
+				 		</div>
+				 	</div>
+				 	<div class="col-lg-4 column">
+				 		<div class="job-single-head style2">
+			 				<div class="job-thumb"> <img src="~/adminJob/images/images (1).jpg" alt="" /> </div>
+			 				<div class="job-head-info">
+			 					<h4>Employer</h4>
+			 					<span>@localizer["University street, 7, Almazor district, Tashkent city"]</span>
+			 					<p> www.Innoweek.uz</p>
+			 					<p>+99893 123 45 67</p>
+			 					<p>inavations.uz</p>
+			 				</div>
+			 				<a asp-controller="User" asp-action=@ViewBag.login title="" class="apply-job-btn">@localizer["Apply for job"]</a>
+			 			</div><!-- Job Head -->
+				 	</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    }
+   
